@@ -41,6 +41,7 @@ export const Toolbar = (props: IToolbarProps) => {
         testId="clear-network-table"
         className="-mr-3"
       />
+      // TODO: get filter from here and pass to ResponseView or ResponseRawView
       <Textfield
         className="w-80"
         value={filterValue}

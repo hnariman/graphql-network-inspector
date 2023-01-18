@@ -8,10 +8,16 @@ interface IResponseViewProps {
   collapsed?: number
 }
 
+const searchFilter = (data: string | {}) => {
+  //TODO: get serch regex from Toolbar component here;
+  return data;
+}
+
 export const ResponseView = (props: IResponseViewProps) => {
   const { response, collapsed } = props
   const { formattedJson, parsedResponse } = useMemo(() => {
     const parsedResponse = safeJson.parse(response) || {}
+    const filteredResponse = searchFilter(parsedResponse);
     return {
       formattedJson: safeJson.stringify(parsedResponse, undefined, 2),
       parsedResponse,
